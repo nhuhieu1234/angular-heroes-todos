@@ -1,0 +1,43 @@
+<!-- <h2>My Heroes</h2>
+<ul class="heroes"> -->
+  <!-- <li class="hero" *ngFor="let hero of heroes"
+		[class.selected]="hero === selectedHero"
+  		(click)="onSelect(hero)">
+		<span class="hero__id">{{hero.id}}</span>
+		<span class="hero__name">{{hero.name}}</span>
+	<button class="hero__close">x</button>
+  </li> -->
+<!--   <li class="hero" *ngFor="let hero of heroes">
+	<a class="hero__link " routerLink="/detail/{{hero.id}}">
+		<span class="hero__id">{{hero.id}}</span>
+		<span class="hero__name">{{hero.name}}</span>
+	</a>
+	<button class="hero__close">x</button>
+  </li>
+</ul>
+<app-hero-detail [hero]='selectedHero'></app-hero-detail> -->
+<h2 class="">My Heroes</h2>
+
+<div class="search">
+  <label class="search__name">Hero name:
+    <input class="search__input" #heroName />
+  </label>
+  <button class="search__btn h-btn h-btn--default" (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>
+
+<!-- <b-hero-item *ngFor="let hero of heroes"></b-hero-item>
+
+<l-hero-item [hero]="heroes"></l-hero-item>
+ -->
+
+<ul class="heroes">
+  <li class="hero" *ngFor="let hero of heroes">
+    <a class="hero__link" routerLink="/detail/{{hero.id}}">
+      <span class="hero__text badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button class="hero__delete h-btn" title="delete hero"
+    (click)="delete(hero)">x</button>
+  </li>
+</ul>

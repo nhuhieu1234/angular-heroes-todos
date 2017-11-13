@@ -1,0 +1,44 @@
+<label>Nhap ten : </label><input [(ngModel)]="newTodo" (keyup.enter)="addTodo(newTodo)" type="text">
+<div>{{newTodo}}</div>
+<button (click) = "selectAll()">Select All</button>
+<button (click) = "delAll()">Clear All</button>
+<button (click) = "listIncomplete()">Active</button>
+<button (click) = "listCompleted()">Completed</button>
+<div>
+    <h2>All Todos</h2>
+    <ul>
+        <li *ngFor = "let td of todos" class="todo">
+            <button (click) = "completed(td)"
+                    >Check</button>
+            <span (dblclick)="uppdateEvent(td)"> id: {{td.id}} - name: {{td.name}} - complete: {{td.complete}} - keys: {{td.keys}}  completed: {{td.completed}}</span>
+            <button (click)="delTodo(td)">Delete</button>
+            <input class="change"  type="text"
+                [(ngModel)] = "changeTodo"
+                [class.changed] = "td === selectedTodo"
+
+                (keyup.enter)="updateTodo(td)">
+        </li>
+    </ul>
+
+</div>
+<div>
+    <h2>Completed</h2>
+    <ul>
+        <li *ngFor = "let cpd of arrCompleted">
+
+            <span>id: {{cpd.id}} - name: {{cpd.name}}</span>
+
+        </li>
+    </ul>
+</div>
+<div>
+    <h2>Incomplete</h2>
+    <ul>
+        <li *ngFor = "let incpd of arrIncomplete">
+
+            <span>id: {{incpd.id}} - name: {{incpd.name}}</span>
+
+        </li>
+    </ul>
+</div>
+

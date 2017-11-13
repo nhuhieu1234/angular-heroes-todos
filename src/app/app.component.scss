@@ -1,0 +1,30 @@
+@import '../styles.scss';
+.menu {
+  @include e ('title') {
+    font-size: 1.2em;
+    color: #999;
+    margin-bottom: 0;
+  }
+  @include e ('link') {
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: $btn-df;
+    border-radius: 4px;
+    color: $color-green;
+    &:link,:visited {
+        color: $color-green;
+    }
+    &:hover {
+      color: $color-active;
+      background-color: $btn-df-hover;
+    }
+  }
+  @include e ('nav') { }
+  @include m ('active') {
+     color: $color-active;
+  }
+}
+
+

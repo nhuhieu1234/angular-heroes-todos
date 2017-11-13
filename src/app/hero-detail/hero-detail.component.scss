@@ -1,0 +1,28 @@
+@import '../../styles.scss';
+.h-dtl {
+  @include e ('title') {
+    font-weight: lighter;
+  }
+  @include e ('id') {
+   color: $color-gray-light;
+  }
+  @include e ('lb-id') {
+ 
+  }
+  @include e ('name') {
+   color: $color-green;
+  }
+  @include e ('lb-name') {
+    display: inline-block;
+    width: 3em;
+    margin: .5em 0;
+    color: $color-green;
+    font-weight: bold;
+  }
+  @include e ('input') {
+    height: 2em;
+    font-size: 1em;
+    padding-left: .4em;
+  }
+}
+

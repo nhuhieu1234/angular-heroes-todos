@@ -1,0 +1,43 @@
+// //@alias element
+@mixin e($element) {
+	&__#{$element} {
+	    @content;
+	}
+}
+/// @alias modifier
+@mixin m($modifier) {
+	&--#{$modifier} {
+	    @content;
+	}
+}
+//Variables
+$color-gray: gray;
+$color-gray-light: #888;
+$color-green: #607D8B;
+$color-white: #fff;
+$color-bg-hero: #EEE;
+$color-bg-hover: #DDD;
+$btn-df: #eee;
+$btn-df-hover: #cfd8dc;
+$color-active: #039be5;
+//Class
+.clearfix {
+  clear: both;
+}
+:focus {
+	outline: 0;
+}
+.h-btn {
+	font-family: Arial;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 4px;
+    cursor: pointer;
+	@include m ('default') {
+		color: $color-gray-light;
+    	background-color: $btn-df;
+    	&:hover {
+    		background-color: $btn-df-hover;
+    	}
+	}
+}

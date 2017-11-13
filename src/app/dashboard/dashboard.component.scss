@@ -1,0 +1,43 @@
+@import '../../styles.scss';
+.dash-brd {
+   @include e ('title') {
+    text-align: center; 
+    margin-bottom: 0;
+  }
+  @include e ('top-heroes') {
+    margin: 0 -20px;
+  }
+  @include e ('link') {
+    text-decoration: none;
+    display: block;
+    width: 25%;
+    float: left;
+    
+  }
+  @include e ('wrp-item') {
+    padding: 20px; 
+  }
+  @include e ('item') {
+    padding: 20px;
+    text-align: center;
+    color: $btn-df;
+    background-color: $color-green;
+    border-radius: 2px;
+    &:hover {
+      background-color: $color-bg-hero;
+      cursor: pointer;
+      color: #607d8b;
+      transition: .3s ease;
+    }
+    @media (max-width: 1024px) {
+        min-width: 60px;
+    }
+    @media (max-width: 600px) {
+        font-size: 10px;
+        max-height: 75px; 
+    }
+  }
+  @include e ('name') {
+    position: relative;
+  }
+}

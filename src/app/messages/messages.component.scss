@@ -1,0 +1,14 @@
+@import '../../styles.scss';
+.mess {
+  @include e('title') {
+    color: red;
+    font-weight: lighter;
+  }
+  @include e('btn-clear') {
+    margin-bottom: 12px;
+  }
+  @include e('text') {
+
+  }
+}
+

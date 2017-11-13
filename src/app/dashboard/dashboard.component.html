@@ -1,0 +1,16 @@
+<div class="dash-brd">
+	<h3 class="dash-brd__title">Top Heroes</h3>
+	<div class="dash-brd__top-heroes grid grid-pad">
+ 		 <a class="dash-brd__link" *ngFor="let hero of heroes"
+      		routerLink="/detail/{{hero.id}}">
+    		<div class="module hero dash-brd__wrp-item">
+      			<div class="dash-brd__item">
+      				<h4 class="dash-brd__name">{{hero.name}}</h4>
+      			</div>
+    		</div>
+ 		 </a>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+<app-hero-search></app-hero-search>
