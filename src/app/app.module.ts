@@ -18,6 +18,9 @@ import { MessagesComponent }    from './messages/messages.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { TodoComponent } from './todo/todo.component';
 import { TodoDataService } from './todo/todo-data.service';
+import { TodoActiveComponent } from './todo/todo-active/todo-active.component';
+import { TodoCompletedComponent } from './todo/todo-completed/todo-completed.component';
+import { TodoViewComponent } from './todo/todo-view/todo-view.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { TodoDataService } from './todo/todo-data.service';
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
-    TodoComponent
+    TodoComponent,
+    TodoActiveComponent,
+    TodoCompletedComponent,
+    TodoViewComponent
     ],
   imports: [
     BrowserModule,

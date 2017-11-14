@@ -1,0 +1,17 @@
+<div>
+    <h2>All Todos</h2>
+    <ul>
+        <li *ngFor = "let td of todos" class="todo">
+            <button (click) = "completed(td)"
+                    >Check</button>
+            <span (dblclick)="uppdateEvent(td)"> id: {{td.id}} - name: {{td.name}} - complete: {{td.complete}} - keys: {{td.keys}}  completed: {{td.completed}}</span>
+            <button (click)="delTodo(td)">Delete</button>
+            <input class="change"  type="text"
+                [(ngModel)] = "changeTodo"
+                [class.changed] = "td === selectedTodo"
+
+                (keyup.enter)="updateTodo(td)">
+        </li>
+    </ul>
+
+</div>

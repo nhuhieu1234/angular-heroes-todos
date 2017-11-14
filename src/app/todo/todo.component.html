@@ -1,4 +1,4 @@
-<label>Nhap ten : </label><input [(ngModel)]="newTodo" (keyup.enter)="addTodo(newTodo)" type="text">
+<!-- <label>Nhap ten : </label><input [(ngModel)]="newTodo" (keyup.enter)="addTodo(newTodo)" type="text">
 <div>{{newTodo}}</div>
 <button (click) = "selectAll()">Select All</button>
 <button (click) = "delAll()">Clear All</button>
@@ -41,4 +41,14 @@
         </li>
     </ul>
 </div>
+
+ -->
+<input [(ngModel)]="newTodo" (keyup.enter)="addTodo(newTodo)" placeholder="What do you do?" type="text">
+<div>{{newTodo}}</div>
+<button (click) = "selectAll()">Select All</button>
+<button (click) = "delAll()">Clear All</button>
+<button type="" [routerLink]="['view']">List todo</button>
+<button type="" [routerLink]="['active']"> Active</button>
+<button type="" [routerLink]="['completed']">Completed</button>
+
 
