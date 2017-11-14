@@ -18,6 +18,9 @@ export class TodoComponent implements OnInit {
     selectedTodo: any;
     changeTodo: string;
 
+    allTodo: Todo[] = [];
+    titleTodo: string = "All Todo";
+
     constructor(private todoDataService: TodoDataService) { }
 
     ngOnInit() {
@@ -25,7 +28,7 @@ export class TodoComponent implements OnInit {
     }
 
     getAll() {
-        return this.todos;
+        return this.allTodo = this.todos;
     }
 
     addTodo(name: string): void {
@@ -42,35 +45,74 @@ export class TodoComponent implements OnInit {
             console.log('error: Todo is not null');
         }
     }
+
+    callEvent(num: number) {
+        if(num == 0) { 
+            this.listTodo(); 
+            console.log(this.allTodo);
+            this.titleTodo = "All Todo" ;
+        }
+        else if(num == 1) { 
+            this.listDoing(); 
+            console.log(this.allTodo);
+            this.titleTodo = "List Doing" ; 
+        }
+        else { 
+            this.listDone(); 
+            console.log(this.allTodo);
+            this.titleTodo = "List Done" ; 
+        }
+    }
+
+    completedEvent(todo: Todo) {
+        (todo.completed == 1) ? todo.completed = 0 :  todo.completed = 1;
+    }
+
+    listTodo() {
+        this.allTodo = this.todos;
+    }
+
+    listDoing() {
+        this.allTodo = this.todos.filter(todo => todo.completed != 1);
+    }
+
+    listDone() {
+        this.allTodo = this.todos.filter(todo => todo.completed != 0);
+    }
+
     // addTodo(name: string) {
     //     this.todos  = this.todoDataService.addTodo(name);
     // }
     delTodo(todo) {
         let id = todo.id;
-        this.todos = this.todos.filter(todo => todo.id != id);
+        console.log(todo)
+       this.allTodo = this.allTodo.filter(todo => todo.id != id);
+       this.todos = this.allTodo;
     }
 
-    completed(todo: Todo) {
-        let id = todo.id;
-        (todo.completed == 1) ? todo.completed = 0 :  todo.completed = 1;
-    }
+    // completed(todo: Todo) {
+    //     let id = todo.id;
+    //     (todo.completed == 1) ? todo.completed = 0 :  todo.completed = 1;
+    // }
 
-    listCompleted(): void {
-        this.arrCompleted = this.todos.filter(todo => todo.completed != 0);
-    }
+    // listCompleted(): void {
+    //     this.arrCompleted = this.todos.filter(todo => todo.completed != 0);
+    // }
 
-    //Chua chay
+    // //Chua chay
     delAll() {
-        this.todos = [];
+        this.allTodo = [];
+        this.todos = this.allTodo;
     }
 
     selectAll() {
-        this.todos = this.todos.filter(todo => todo.completed = 1);
+        this.allTodo = this.allTodo.filter(todo => todo.completed = 1);
+        this.todos = this.allTodo;
     }
 
-    listIncomplete(): void {
-        this.arrIncomplete = this.todos.filter(todo => todo.completed != 1);
-    }
+    // listIncomplete(): void {
+    //     this.arrIncomplete = this.todos.filter(todo => todo.completed != 1);
+    // }
 
     uppdateEvent(todo) {
         this.selectedTodo = todo;

@@ -47,8 +47,27 @@
 <div>{{newTodo}}</div>
 <button (click) = "selectAll()">Select All</button>
 <button (click) = "delAll()">Clear All</button>
-<button type="" [routerLink]="['view']">List todo</button>
+<!-- <button type="" [routerLink]="['view']">List todo</button>
 <button type="" [routerLink]="['active']"> Active</button>
-<button type="" [routerLink]="['completed']">Completed</button>
+<button type="" [routerLink]="['completed']">Completed</button> -->
+<button type="" (click)="callEvent(0)">List Todo</button>
+<button type="" (click)="callEvent(1)"> List Doing</button>
+<button type="" (click)="callEvent(2)">List Done</button>
 
+<div>
+    <h2>{{titleTodo}}</h2>
+    <ul>
+        <li *ngFor = "let td of allTodo" class="todo">
+            <button (click) = "completedEvent(td)"
+                    >Check</button>
+            <span (dblclick)="uppdateEvent(td)"> id: {{td.id}} - name: {{td.name}} - complete: {{td.complete}} - keys: {{td.keys}}  completed: {{td.completed}}</span>
+            <button (click)="delTodo(td)">Delete</button>
+            <input class="change"  type="text"
+                [(ngModel)] = "changeTodo"
+                [class.changed] = "td === selectedTodo"
 
+                (keyup.enter)="updateTodo(td)">
+        </li>
+    </ul>
+
+</div>
